@@ -1,0 +1,129 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        * {
+            background-color: pink;
+        }
+
+
+        body {
+            background-image: url('images/background.jpg');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: rgb(245, 203, 155);
+        }
+
+        form {
+            margin: 0;
+            padding: 0;
+            width: 400px;
+            height: 500px;
+            border: 2px solid rgb(15, 15, 15);
+        }
+
+        label {
+            font-size: larger;
+            padding-left: 10px;
+            color: #dd1010;
+        }
+
+        h1 {
+            font-size: 40px;
+
+            background-color: #8879f8;
+        }
+
+
+        input {
+            width: 200px;
+        }
+
+        form button {
+            margin-top: 60px;
+            margin-left: 40px;
+            color: White;
+            background-color: darkgreen;
+        }
+
+        #formcontent {
+            margin: 10px;
+        }
+
+        #confirmationMessage {
+            text-align: center;
+            padding: 40px;
+            background-color: #0bcf46;
+            color: #0a0808;
+            border-radius: 2px;
+            font-size: 40px;
+            margin-bottom: auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="paymentForm">
+        <h1>Payment Details</h1>
+        <div id="formcontent"></div>
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+        <br>
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+        <br>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+        <br>
+        </div>
+        <button type="button" onclick="processPayment()">Process Payment</button>
+        <button type="button" onclick="goback()">Back</button>
+    </form>
+    <div id="confirmationMessage" class="hidden">
+        <p id="printedData" style="background-color: #0bcf46; color: #0a0808;">Your order placed successfully.... Visit
+            again!!!</p>
+    </div>
+
+
+    <script>
+        function processPayment() {
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+            // Placeholder: Validate the card details
+            if (cardNumber && expiryDate && cvv) {
+
+                confirmOrder();
+
+                // Redirect to order confirmation page or another appropriate action
+                // window.location.href = "confirmation.html";
+            } else {
+                alert("Please fill in all the required fields.");
+            }
+        }
+        function goback(){
+            window.location.href="confirmorder.html";
+        }
+        function confirmOrder() {
+
+            const confirmationMessage = "Order confirmed! Thank you for your purchase.Your order placed successfully.... Visit again!!!";
+
+            document.getElementById('paymentForm').style.display = 'none';
+            document.getElementById('confirmationMessage').style.display = 'block';
+            document.getElementById('printedData').textContent = confirmationMessage;
+
+        }
+    </script>
+</body>
+
+</html>

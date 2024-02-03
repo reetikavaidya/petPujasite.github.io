@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector('.menu-icon');
+        const navbar = document.querySelector('.navbar');
+
+        menuIcon.addEventListener('click', function () {
+            navbar.classList.toggle('show-menu');
+        });
+
+        // Close the menu when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
+                navbar.classList.remove('show-menu');
+            }
+        });
+    });
+    function openTable() {
+        window.location.href = "booktables.html";
+    }
+</script>
+
+
+    <header>
+        <img src="images/facebook.png" alt="img1">
+        <img src="images/instagram.png" alt="img2">
+        <img src="images/twitter.png" alt="img3">
+        <div class="menu-icon">&#9776;</div>
+        <div class="navbar menu-box">
+            <nav class="navbar">
+                <a href="index.html"> Home </a>
+                <a href="specialoffers.html">Special Offer </a>
+                <a href="menu.html">Menu</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="account.html">Account</a>
+            </nav>
+        </div>
+
+        <p class="navbarright">Place For Foodies</p>
+    </header>
+    <section class="home" id="home">
+        <div class="container">
+            <div class="container2">
+
+                <h2 class="Petpuja">Pet <b>PUJA </b></h2>
+
+            </div>
+            <br>
+            <div class="container3">
+
+                <a href="menu.html"><input type="button" value="Order Online" id="btn1"> </a>
+                <input type="button" value="Book Tables" id="btn2" onclick="openTable()">
+            </div>
+        </div>
+    </section>
+    <footer>
+            <div class="footer-col">
+                <h3>Top  Quality Products</h3>
+                <li>Veg And NonVeg</li>
+                <li>Breakfast</li>
+                <li>Dinner Items</li>
+                <li>Soft and Cold Drinks</li>
+    
+            </div>
+    
+            <div class="footer-col">
+                <h3>SERVICES</h3>
+                <li>Fast Delivery</li>
+                <li>Natural Food</li>
+                <li>Best Quality Food</li>
+                <li>Instant Foods</li>
+    
+            </div>
+    
+            <div class="footer-col">
+                <h3>MORE</h3>
+                <li>Secure Your Salary</li>
+                <li>Return policy</li>
+                <li>Top Quality Product</li>
+                <li>Eat Healdy Stay Healty</li>
+    
+            </div>
+    
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <li>AboutUs</li>
+                <li>Service</li>
+                <li>Review</li>
+                <li>Contact</li>
+    
+            </div>
+            <div class="footer-col">
+                <h3>NewsLetters</h3>
+                <p>You can Trust us. we only send promo offers,</p>
+                <div class="subscribe">
+                    <input type="text" placeholder="Your mail Address">
+                    <a href="#" class="yellow">SUBSCRIBE</a>
+                </div>
+    
+    
+            </div>
+    
+            <div class="copy">
+                <p> Copyright @2023 All right reserved | </p>
+                <p>FOLLOW US </p>
+                <div class="pro-link">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin-in"></i>
+    
+                </div>
+    
+            </div>
+    
+        </footer>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Order</title>
+    <link rel="stylesheet" type="text/css" href="ConfirmOrder.css">
+
+    <style>
+        * {
+            background-color: pink;
+        }
+        
+        
+        body {
+            background-image: url('images/background.jpg');
+
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: rgb(245, 203, 155);
+        }
+        
+        form {
+            margin: 0;
+            padding: 0;
+            width: 400px;
+            height: 500px;
+            border: 2px solid rgb(15, 15, 15);
+        }
+        label{
+            font-size: larger;
+            padding-left: 10px;
+            color: #dd1010;
+        }
+        
+        #divheading {
+            font-size: 40px;
+
+            background-color: #8879f8;
+        }
+        
+        
+                input {
+                    width: 200px;
+                }
+        form button{
+           margin-top: 60px;
+            margin-left: 20px;
+            background-color: darkgreen;
+            color: white;
+        }
+        #formcontent{
+            margin: 10px;
+            padding-top: 10px;
+        }
+
+        
+        
+    </style>
+</head>
+
+<body>
+
+        <form id="orderForm">
+            <div id="divheading">Details</div>
+            <div id="formcontent">
+            <label for="name">Name:</label>
+            
+            <input type="text" id="name" name="name" required>
+            <br>
+    
+            <label for="address">Address:</label>
+            <br>
+            <textarea id="address" name="address" rows="5" cols="50"></textarea>
+            <br>
+    
+            <label for="phone">Phone Number:</label>
+            
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            <br>
+            <br>
+        </div>
+    
+            <button type="button" onclick="submitOrder()">Submit Order</button>
+            <button onclick="redirectToPayment()">Proceed to Payment</button>
+            <button type="button" onclick="goback()">Back</button>
+
+        </form>
+            
+
+
+    
+
+    
+
+    <script>
+        function submitOrder() {
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+
+            if (name && address && phone) {
+                console.log("Data saved");
+                alert(`Order Confirmed!\nName: ${name}\nAddress: ${address}\nPhone: ${phone}`);
+            } else {
+                alert("Please fill in all the required fields.");
+            }
+        }
+        function goback(){
+            window.location.href="addtocart.html";
+        }
+        function redirectToPayment() {
+        // Redirect to the payment page
+        window.location.href = "payment.html";
+    }
+
+    </script>
+
+</body>
+
+</html>
